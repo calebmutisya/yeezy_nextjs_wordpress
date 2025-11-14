@@ -1,9 +1,11 @@
-import Image from "next/image";
+import { getProducts } from "@/actions/products";
+import ProductGrid from "@/components/ProductGrid";
 
-export default function Home() {
+export default async function Home() {
+
+  const products = await getProducts();
+
   return (
-    <div>
-      Home Page
-    </div>
+    <ProductGrid  products={products} />
   );
 }
